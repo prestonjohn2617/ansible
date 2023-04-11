@@ -1,7 +1,7 @@
 - name: Red-hat updates
   hosts: all
   tasks:
-      - name: Updating system
-        command: wall updating system
-      - name: Patching command
-        command: yum -y update
+     - name: Updating system
+       command: wall updating system
+     - name: Patching command
+       command: yum -y update
