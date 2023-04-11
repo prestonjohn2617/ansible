@@ -4,4 +4,5 @@
      - name: Updating system
        command: wall updating system
      - name: Patching command
+       debug:
        command: yum -y update
