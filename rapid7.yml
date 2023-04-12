@@ -1,5 +1,5 @@
 - name: Copy Rapid7 to Host
-  hosts: all
+  hosts: 10.210.85.103
   become: true
   tasks:
      - name: Copy rapid 7 install file
