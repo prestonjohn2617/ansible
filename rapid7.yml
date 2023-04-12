@@ -6,3 +6,4 @@
        copy:
         src: /tmp/agent_installer-x86_64.sh
         dest: /etc/
+        remote_src: yes
