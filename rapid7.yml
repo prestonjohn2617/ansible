@@ -6,3 +6,5 @@
        ansible.builtin.copy:
         src: /home/test/test.text
         dest: /etc/test.text
+        owner: root
+        mode: '0644'
