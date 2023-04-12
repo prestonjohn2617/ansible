@@ -5,4 +5,4 @@
       command: whoami
       register: command_output
     -debug:
-            var: command_output.stdout_lines
+      var: command_output.stdout_lines
