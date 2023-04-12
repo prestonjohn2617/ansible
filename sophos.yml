@@ -1,5 +1,5 @@
 - name: Install Sophos
-  hosts: grnp-ntp01.colehaan.net,grnp-ntp02.colehaan.net,grnp-ntp03.colehaan.net,somd-marc01.colehaan.net,somt-marc01.colehaan.net
+  hosts: somp-marc01.colehaan.net,somd-marc01.colehaan.net
   become: true
   tasks:
      - name: Copy Sophos Install file
