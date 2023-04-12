@@ -5,4 +5,5 @@
        command: wall updating system
      - name: Patching command
        command: yum -y update
-       debug:
+       register: command_output
+    - debug: msg="{{ command_output.stdout }}"
