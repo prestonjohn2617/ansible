@@ -4,8 +4,8 @@
      - name: Updating system
        command: wall updating system
        register: wall
+     - debug: msg="{{ wall.stdout }}"
      - name: Patching command
        command: yum -y update
        register: update
-    - debug: msg="{{ wall.stdout }}"
     - debug: msg="{{ update.stdout }}"
