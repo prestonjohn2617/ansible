@@ -9,3 +9,6 @@
         owner: root
         group: root
         mode: 0644
+       register: rapid7
+     - debug: msg="{{ rapid7.stdout }}"
+     - debug: msg="{{ rapid7.stderr }}"
