@@ -1,0 +1,7 @@
+- name: Copy Rapid7 to Host
+  ansible.builtin.copy:
+    src: /mnt/grenas01/Rapid7-Linux/agent_installer-x86_64.sh
+    dest: /tmp/agent_installer-x86_64.sh
+    owner: root
+    group: root
+    mode: '0644'
