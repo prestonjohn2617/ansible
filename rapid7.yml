@@ -3,6 +3,6 @@
   tasks:
      - name: Copy rapid 7 install file
        copy:
-        src: /mnt/Rapid7-Linux/
-        dest: /etc/
+        src: /test.text
+        dest: /etc/test.text
         remote_src: yes
