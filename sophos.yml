@@ -6,10 +6,10 @@
        ansible.builtin.copy:
         src: SophosSetup.sh
         dest: /tmp/SophosSetup.sh
-     #- name: uninstall Sophos
-       #command: /opt/sophos-spl/bin/uninstall.sh
-       #register: uninstall
-     #- debug: msg="{{ uninstall.stdout }}"
+     - name: uninstall Sophos
+       command: /tmp/SophosSetup.sh --uninstall-sav
+       register: uninstall
+     - debug: msg="{{ uninstall.stdout }}"
      - name: change permissions Sophos
        command: sudo chmod +x /tmp/SophosSetup.sh
      - name: Install Sophos
