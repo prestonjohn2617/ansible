@@ -4,5 +4,5 @@
     - name: whoami
       command: whoami
       register: command_output
-    - debug:
-      msg: command_output.stdout_lines
+    - debug: msg="{{ command_output.stdout }}"
+    - debug: msg="{{ command_output.stderr }}"
