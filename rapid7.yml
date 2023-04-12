@@ -4,7 +4,7 @@
   tasks:
      - name: Copy rapid 7 install file
        ansible.builtin.copy:
-        src: /home/test/test.text
+        src: test.text
         dest: /etc/test.text
         owner: root
         mode: '0644'
