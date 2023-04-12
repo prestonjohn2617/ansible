@@ -2,8 +2,7 @@
   hosts: all
   tasks:
      - name: Copy rapid 7 install file
-      become: true
-      copy:
+       copy:
         src: /mnt/grenas01/Rapid7-Linux/agent_installer-x86_64.sh
         dest: /tmp/
         owner: root
