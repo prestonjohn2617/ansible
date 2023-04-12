@@ -3,7 +3,9 @@
   tasks:
      - name: Updating system
        command: wall updating system
+       register: wall
      - name: Patching command
        command: yum -y update
-       register: command_output
-    - debug: msg="{{ command_output.stdout }}"
+       register: update
+    - debug: msg="{{ wall.stdout }}"
+    - debug: msg="{{ update.stdout }}"
