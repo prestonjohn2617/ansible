@@ -3,7 +3,7 @@
   tasks:
      - name: Copy rapid 7 install file
        copy:
-        src: /mnt/grenas01/Rapid7-Linux/
+        src: /mnt/Rapid7-Linux/
         dest: /etc/
         owner: root
         group: root
