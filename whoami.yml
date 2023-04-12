@@ -4,5 +4,5 @@
     - name: whoami
       command: whoami
       register: command_output
-    -debug:
+    - debug:
       var: command_output.stdout_lines
