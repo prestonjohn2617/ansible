@@ -8,5 +8,3 @@
         dest: /etc/test.text
         owner: root
         mode: '0644'
-       register: rapid7
-     - debug: msg="{{ rapid7.stdout }}"
