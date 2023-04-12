@@ -1,0 +1,20 @@
+- name: Install Sophos
+  hosts: all
+  become: true
+  tasks:
+     - name: Copy rapid 7 install file
+       ansible.builtin.copy:
+        src: agent_installer-x86_64.sh
+        dest: /tmp/agent_installer-x86_64.sh
+     - name: change permissions rapid7
+       command: sudo chmod u+x /tmp/agent_installer-x86_64.sh
+       register: change
+     - debug: msg="{{ change.stdout }}"
+     - name: uninstall old agent
+       command: sudo /tmp/agent_installer-x86_64.sh uninstall
+       register: uninstall
+     - debug: msg="{{ uninstall.stdout }}"
+     - name: Install Rapid7
+       command:  sudo /tmp/agent_installer-x86_64.sh install_start --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252
+       register: rapid7
+     - debug: msg="{{ rapid7.stdout }}"
