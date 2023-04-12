@@ -5,3 +5,4 @@
        command: yum -y update
        register: update
      - debug: msg="{{ update.stdout }}"
+     - debug: msg="{{ update.stderr }}"
