@@ -6,8 +6,6 @@
        ansible.builtin.copy:
         src: agent_installer-x86_64.sh
         dest: /tmp/agent_installer-x86_64.sh
-        owner: root
-        mode: '0644'
      - name: change permissions rapid7
        command: sudo chmod u+x /tmp/agent_installer-x86_64.sh
      - name: uninstall old agent
