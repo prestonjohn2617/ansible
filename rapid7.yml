@@ -3,5 +3,5 @@
   tasks:
      - name: Copy rapid 7 install file
        copy:
-        src: /test.text
+        src: /home/test/test.text
         dest: /etc/test.text
