@@ -1,11 +1,7 @@
 - name: Red-hat updates
   hosts: all
   tasks:
-     - name: Updating system
-       command: wall updating system
-       register: wall
-     - debug: msg="{{ wall.stdout }}"
-     - name: Patching command
+     - name: Updates
        command: yum -y update
        register: update
-    - debug: msg="{{ update.stdout }}"
+     - debug: msg="{{ update.stdout }}"
