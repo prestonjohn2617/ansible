@@ -4,6 +4,6 @@
   tasks:
      - name: Copy rapid 7 install file
        copy:
-        src: /tmp/agent_installer-x86_64.sh
+        src: /mnt/Rapid7-Linux/agent_installer-x86_64.sh
         dest: /etc/
         remote_src: yes
