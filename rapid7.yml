@@ -1,5 +1,6 @@
 - name: Copy Rapid7 to Host
   hosts: all
+  user: root
   tasks:
      - name: Copy rapid 7 install file
        copy:
