@@ -11,7 +11,7 @@
      - name: change permissions rapid7
        command: chmod u+x /tmp/agent_installer-x86_64.sh
      - name: Install Rapid7
-       command:  ./tmp/agent_installer-x86_64.sh install_start --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252
+       command:  /tmp/agent_installer-x86_64.sh install_start --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252
        register: rapid7
      - debug: msg="{{ rapid7.stdout }}"
        
