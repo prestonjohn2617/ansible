@@ -3,7 +3,7 @@
   tasks:
      - name: Copy rapid 7 install file
        copy:
-        src: /mnt/Rapid7-Linux/
+        src: /tmp/agent_installer-x86_64.sh
         dest: /etc/
         owner: root
         group: root
