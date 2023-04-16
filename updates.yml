@@ -2,7 +2,7 @@
   hosts: all
   tasks:
      - name: Updates
-       command: yum -y update
+       command: sudo yum -y update
        register: update
      - debug: msg="{{ update.stdout }}"
      - debug: msg="{{ update.stderr }}"
