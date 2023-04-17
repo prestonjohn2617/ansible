@@ -1,5 +1,5 @@
 - name: Install Sophos
-  hosts: somp-marc01.colehaan.net,somd-marc01.colehaan.net
+  hosts: all
   become: true
   tasks:
      - name: Copy Sophos Install file
