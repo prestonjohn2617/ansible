@@ -8,9 +8,9 @@
    ansible_httpapi_validate_certs: no
    ansible_httpapi_port: 443
   tasks:
-  - name: Configure FortiManager.
+  - name: Configure FortiManager
     fortios_system_central_management:
       vdom:  "{{ vdom }}"
-      system_fortimanager:
+      system_central_management:
         central_management: "enable"
         ip: "10.210.63.104"
