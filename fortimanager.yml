@@ -1,7 +1,16 @@
-- name: Fortigate Test
-  hosts: all
+- hosts: 10.210.96.5
+  collections:
+    - fortinet.fortios
+  connection: httpapi
+  vars:
+   vdom: "root"
+   ansible_httpapi_use_ssl: yes
+   ansible_httpapi_validate_certs: no
+   ansible_httpapi_port: 443
   tasks:
-    - name: status
-      command: get sys status
-      register: command_output
-    - debug: msg="{{ command_output.stdout }}"
+  - name: Configure FortiManager.
+    fortios_system_fortimanager:
+      vdom:  "{{ vdom }}"
+      system_fortimanager:
+        central_management: "enable"
+        ip: "10.210.63.104"
