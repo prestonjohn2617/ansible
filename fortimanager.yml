@@ -9,7 +9,7 @@
    ansible_httpapi_port: 443
   tasks:
   - name: Configure FortiManager
-    fortios_system_central_management:
+    system_fortimanager:
       vdom:  "{{ vdom }}"
       system_central_management:
         central_management: "enable"
