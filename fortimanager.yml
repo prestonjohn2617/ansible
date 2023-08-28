@@ -1,4 +1,4 @@
-- hosts: 10.210.96.5
+- hosts: all
   collections:
     - fortinet.fortios
   connection: httpapi
