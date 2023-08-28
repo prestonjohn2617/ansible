@@ -1,1 +1,7 @@
-
+- name: Fortigate Test
+  hosts: all
+  tasks:
+    - name: status
+      command: get sys status
+      register: command_output
+    - debug: msg="{{ command_output.stdout }}"
