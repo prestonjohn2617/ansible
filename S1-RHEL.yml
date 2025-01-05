@@ -7,7 +7,7 @@
         src: SentinelAgent_linux_x86_64_v24_1_3_8.rpm
         dest: /tmp/SentinelAgent_linux_x86_64_v24_1_3_8.rpm
      - name: Install S1
-       command: rpm -ivh --nodigest --nofiledigest SentinelAgent_linux_x86_64_v24_1_3_8.rpm
+       command: rpm -ivh --nodigest --nofiledigest /tmp/SentinelAgent_linux_x86_64_v24_1_3_8.rpm
        register: Install
      - debug: msg="{{ Install.stdout }}"
      - name: Install S1
