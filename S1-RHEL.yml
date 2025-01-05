@@ -17,4 +17,4 @@
      - name: Service Start
        command: /opt/sentinelone/bin/sentinelctl control start
        register: Service
-    - debug: msg="{{ Service.stdout }}"
+     - debug: msg="{{ Service.stdout }}"
