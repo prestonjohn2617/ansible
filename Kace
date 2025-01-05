@@ -1,0 +1,12 @@
+- name: Install Kace Agent
+  hosts: all
+  become: true
+  tasks:
+     - name: Copy Kace Agent
+       ansible.builtin.copy:
+        src: ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
+        dest: /tmp/ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
+     - name: Install Kace
+       command: rpm -Uvh /tmp/ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
+       register: Install
+     - debug: msg="{{ Install.stdout }}"
