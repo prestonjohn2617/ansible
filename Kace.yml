@@ -9,7 +9,11 @@
      - name: Install Perl
        command: dnf -y install perl
        register: Perl
-     - debug: msg="{{ Perl.stdout }}"
+     - debug: msg="{{ Perl.stdout }}"  
+     - name: Install Cups
+       command: dnf -y install cups
+       register: Cups
+     - debug: msg="{{ Cups.stdout }}"
      - name: Install Kace
        command: rpm -Uvh /tmp/ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
        register: Install
