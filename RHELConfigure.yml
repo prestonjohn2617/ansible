@@ -1,0 +1,64 @@
+- name: Install Rapid7 RHEL
+  hosts: all
+  become: true
+  tasks:
+     - name: Copy rapid 7 install file
+       ansible.builtin.copy:
+        src: rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
+        dest: /tmp/rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
+     - name: Install R7
+       command: rpm -i /tmp/rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
+       register: Install
+     - debug: msg="{{ Install.stdout }}"
+     - name: Configure
+       command:  /opt/rapid7/ir_agent/components/insight_agent/4.0.13.32/configure_agent.sh --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252 --start
+       register: Configure
+     - debug: msg="{{ Configure.stdout }}"
+- name: Install S1
+  hosts: all
+  become: true
+  tasks:
+     - name: Copy S1 Install File
+       ansible.builtin.copy:
+        src: SentinelAgent_linux_x86_64_v24_1_3_8.rpm
+        dest: /tmp/SentinelAgent_linux_x86_64_v24_1_3_8.rpm
+     - name: Install S1
+       command: rpm -ivh --nodigest --nofiledigest /tmp/SentinelAgent_linux_x86_64_v24_1_3_8.rpm
+       register: Install
+     - debug: msg="{{ Install.stdout }}"
+     - name: Install S1
+       command:  /opt/sentinelone/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cHM6Ly91c2VhMS1sb2Rlc3RvbmUuc2VudGluZWxvbmUubmV0IiwgInNpdGVfa2V5IjogIjQyY2Y2MDdhNjgwMTY1M2QifQ==
+       register: S1
+     - debug: msg="{{ S1.stdout }}"
+     - name: Service Start
+       command: /opt/sentinelone/bin/sentinelctl control start
+       register: Service
+     - debug: msg="{{ Service.stdout }}"
+- name: Install Kace Agent
+  hosts: all
+  become: true
+  tasks:
+     - name: Copy Kace Agent
+       ansible.builtin.copy:
+        src: ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
+        dest: /tmp/ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
+     - name: Install Perl
+       command: dnf -y install perl
+       register: Perl
+     - debug: msg="{{ Perl.stdout }}"  
+     - name: Install Cups
+       command: dnf -y install cups
+       register: Cups
+     - debug: msg="{{ Cups.stdout }}"
+     - name: Install Kace
+       command: rpm -Uvh /tmp/ampagent-14.0.91.rhel.64_sma.colehaan.com+6UkiIl8E1nALa4_Ges2fR6dt_dCoK_oHf5e1cc7rgwJBrrtm04xtnQ.rpm
+       register: Install
+     - debug: msg="{{ Install.stdout }}"
+- name: Red-hat updates
+  hosts: all
+  tasks:
+     - name: Updates
+       command: sudo yum -y update
+       register: update
+     - debug: msg="{{ update.stdout }}"
+     - debug: msg="{{ update.stderr }}"
