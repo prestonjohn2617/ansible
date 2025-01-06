@@ -1,17 +1,21 @@
-- name: Copy Rapid7 to Host
+- name: Install Rapid7 RHEL
   hosts: all
   become: true
   tasks:
      - name: Copy rapid 7 install file
        ansible.builtin.copy:
-        src: agent_installer-x86_64.sh
-        dest: /tmp/agent_installer-x86_64.sh
-     - name: change permissions rapid7
-       command: sudo chmod u+x /tmp/agent_installer-x86_64.sh
-       register: change
-     - debug: msg="{{ change.stdout }}"
-     - name: Install Rapid7
-       command:  sudo /tmp/agent_installer-x86_64.sh install_start --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252
-       register: rapid7
-     - debug: msg="{{ rapid7.stdout }}"
+        src: rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
+        dest: /tmp/rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
+     - name: Install R7
+       command: rpm -i rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
+       register: Install
+     - debug: msg="{{ Install.stdout }}"
+     - name: CD to location
+       command:  cd /opt/rapid7/ir_agent/components/insight_agent/4.0.13.32-1
+       register: CD
+     - debug: msg="{{ CD.stdout }}"
+     - name: Configure R7
+       command: ./configure_agent.sh --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252 --start
+       register: Configure
+     - debug: msg="{{ Configure.stdout }}"
        
