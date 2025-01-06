@@ -8,6 +8,7 @@
         dest: /tmp/rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
      - name: Install R7
        command: rpm -i /tmp/rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
+       ignore_errors: true
        register: Install
      - debug: msg="{{ Install.stdout }}"
      - name: Configure
