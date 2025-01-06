@@ -26,14 +26,17 @@
         dest: /tmp/SentinelAgent_linux_x86_64_v24_1_3_8.rpm
      - name: Install S1
        command: rpm -ivh --nodigest --nofiledigest /tmp/SentinelAgent_linux_x86_64_v24_1_3_8.rpm
+       ignore_errors: true
        register: Install
      - debug: msg="{{ Install.stdout }}"
      - name: Install S1
        command:  /opt/sentinelone/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cHM6Ly91c2VhMS1sb2Rlc3RvbmUuc2VudGluZWxvbmUubmV0IiwgInNpdGVfa2V5IjogIjQyY2Y2MDdhNjgwMTY1M2QifQ==
+       ignore_errors: true
        register: S1
      - debug: msg="{{ S1.stdout }}"
      - name: Service Start
        command: /opt/sentinelone/bin/sentinelctl control start
+       ignore_errors: true
        register: Service
      - debug: msg="{{ Service.stdout }}"
 - name: Install Kace Agent
