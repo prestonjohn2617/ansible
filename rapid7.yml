@@ -10,10 +10,6 @@
        command: sudo chmod u+x /tmp/agent_installer-x86_64.sh
        register: change
      - debug: msg="{{ change.stdout }}"
-     #- name: uninstall old agent
-       #command: sudo /tmp/agent_installer-x86_64.sh uninstall
-       #register: uninstall
-     #- debug: msg="{{ uninstall.stdout }}"
      - name: Install Rapid7
        command:  sudo /tmp/agent_installer-x86_64.sh install_start --token us2:29adf8d8-a961-48a8-a43b-f1d6b5096252
        register: rapid7
