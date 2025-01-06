@@ -57,8 +57,11 @@
 - name: Red-hat updates
   hosts: all
   tasks:
-     - name: Updates
-       command: sudo yum -y update
+     - name: Update
+       command: sudo dnf -y update
        register: update
      - debug: msg="{{ update.stdout }}"
-     - debug: msg="{{ update.stderr }}"
+     - name: Upgrade
+       command: sudo dnf -y upgrade
+       register: upgrade
+     - debug: msg="{{ upgrade.stdout }}"
