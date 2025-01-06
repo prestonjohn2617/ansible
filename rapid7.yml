@@ -7,7 +7,7 @@
         src: rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
         dest: /tmp/rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
      - name: Install R7
-       command: rpm -i rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
+       command: rpm -i /tmp/rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
        register: Install
      - debug: msg="{{ Install.stdout }}"
      - name: CD to location
