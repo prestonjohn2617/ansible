@@ -4,10 +4,10 @@
   tasks:
      - name: Copy rapid 7 install file
        ansible.builtin.copy:
-        src: rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
-        dest: /tmp/rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
+        src: rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
+        dest: /tmp/rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
      - name: Install R7
-       command: rpm -i /tmp/rapid7-insight-agent-4.0.13.32-1.aarch64.rpm
+       command: rpm -i /tmp/rapid7-insight-agent-4.0.13.32-1.x86_64.rpm
        register: Install
      - debug: msg="{{ Install.stdout }}"
      - name: CD to location
