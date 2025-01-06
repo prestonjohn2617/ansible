@@ -1,6 +1,6 @@
 ---
 - name: Red Hat Enterprice linux patch update
-  hosts: rhel
+  hosts: all
   gather_facts: yes
   
   tasks:
