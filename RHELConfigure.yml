@@ -1,3 +1,6 @@
+- name: Do not count this as a failure
+  ansible.builtin.command: /bin/false
+  ignore_errors: true
 - name: Install Rapid7 RHEL
   hosts: all
   become: true
